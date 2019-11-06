@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.io.File;
+import java.util.ArrayList;
 public class main {
 
 	public static void printStars(int howMany) {
@@ -41,6 +42,17 @@ public class main {
 		int choice;
 		System.out.println("Enter the name of member file: ");
 		String fname = sc.nextLine();
+		ArrayList<String> members = MemberReader.readDataFile(fname);
+		
+		
+		if (members == null) {
+			System.out.println("Something bad happened");
+		}else {
+			do {
+				showMenu();
+			}while(choice != 7);
+		}
+		
 		
 	}
 
