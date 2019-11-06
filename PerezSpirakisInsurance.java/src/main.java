@@ -53,7 +53,7 @@ public class main {
 				choice = sc.nextInt();
 				
 				if (choice == 1) {
-					
+					System.out.println(members);
 				}else if (choice == 2) {
 					
 				}else if (choice == 3) {
