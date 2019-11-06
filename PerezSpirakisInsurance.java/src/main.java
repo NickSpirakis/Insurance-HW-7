@@ -50,6 +50,12 @@ public class main {
 		}else {
 			do {
 				showMenu();
+				System.out.println("Enter name of Binary file: ");
+				ArrayList<Member> readFromBin = MemberReader.readStudentFromBinary(fname);
+				//MemberWriter.writeMembersToBinary;
+				
+				ArrayList<Member> readFromXML = MemberReader.readStudentFromXML(fname);
+				
 			}while(choice != 7);
 		}
 		
