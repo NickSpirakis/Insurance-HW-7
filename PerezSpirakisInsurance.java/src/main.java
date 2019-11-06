@@ -40,21 +40,44 @@ public class main {
 		printWelcome();
 		Scanner sc = new Scanner(System.in);
 		int choice;
+		String choose;
 		System.out.println("Enter the name of member file: ");
 		String fname = sc.nextLine();
-		ArrayList<String> members = MemberReader.readDataFile(fname);
-		
+		ArrayList<Member> members = MemberReader.readDataFile(fname);
 		
 		if (members == null) {
 			System.out.println("Something bad happened");
 		}else {
 			do {
 				showMenu();
-				System.out.println("Enter name of Binary file: ");
-				ArrayList<Member> readFromBin = MemberReader.readStudentFromBinary(fname);
-				//MemberWriter.writeMembersToBinary;
+				choice = sc.nextInt();
 				
-				ArrayList<Member> readFromXML = MemberReader.readStudentFromXML(fname);
+				if (choice == 1) {
+					
+				}else if (choice == 2) {
+					
+				}else if (choice == 3) {
+					System.out.println("(T)ext, (B)inary, (X)ml: ");
+					choose = sc.next();
+					
+					if (choose == "T") {
+						
+					}else if (choose == "B") {
+						ArrayList<Member> readFromBin = MemberReader.readMemberFromBinary(fname);
+					//MemberWriter.writeMembersToBinary;
+					}else if (choose == "X") {
+					ArrayList<Member> readFromXML = MemberReader.readMemberFromXML(fname);
+					}
+					
+					
+					
+				}else if (choice == 4) {
+					
+				}else if (choice == 5) {
+					
+				}else if (choice == 6) {
+					
+				}
 				
 			}while(choice != 7);
 		}

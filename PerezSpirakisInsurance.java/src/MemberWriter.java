@@ -17,7 +17,7 @@ public class MemberWriter {
 		return true;
 			
 		}catch(Exception ex) {
-			
+			return false;
 		}
 	}
 	
@@ -25,9 +25,10 @@ public class MemberWriter {
 		try {
 			XMLEncoder enc = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(fname)));
 			enc.writeObject(members);
-		
+			enc.close();
+		return true;
 		}catch(Exception ex) {
-			
+			return false;
 		}
 	}
 	
