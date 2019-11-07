@@ -1,8 +1,14 @@
-import java.io.*;
-import java.util.ArrayList;
+/**
+ * This Member class will hold a persons information
+ * such as their first and last name, age, height, weight
+ * blood pressure of systolic and diastolic,
+ * and three yes or no question 
+ * 
+ * */
+import java.io.Serializable;
 
 //must have a public default constructor
-public class Member implements Serializable{
+public class Member implements Serializable{//FIXME there might be a error with the Serializable not sure?
 	
 	private String firstName;
 	private String lastName;	
@@ -19,13 +25,10 @@ public class Member implements Serializable{
 	 * dia = Diabetes
 	 * alz = Alzheimers
 	 * 
-	 * true = yes
-	 * false = no
+	 * y = yes
+	 * n = no
 	 * */
-	
-	//TODO change this into to a String data type
-	private boolean can, dia, alz;
-	//TODO change the getter and the setter for these three data types
+	private String can, dia, alz;
 	
 	
 	// getter and setter	//
@@ -86,30 +89,31 @@ public class Member implements Serializable{
 		BPD = bPD;
 	}
 
-	public boolean isCan() {
+	public String getCan() {
 		return can;
 	}
 
-	public void setCan(boolean can) {
+	public void setCan(String can) {
 		this.can = can;
 	}
 
-	public boolean isDia() {
+	public String getDia() {
 		return dia;
 	}
 
-	public void setDia(boolean dia) {
+	public void setDia(String dia) {
 		this.dia = dia;
 	}
 
-	public boolean isAlz() {
+	public String getAlz() {
 		return alz;
 	}
 
-	public void setAlz(boolean alz) {
+	public void setAlz(String alz) {
 		this.alz = alz;
 	}
 		
+	
 	//This is a default constructor
 	public Member() {
 		firstName = "";
@@ -121,13 +125,39 @@ public class Member implements Serializable{
 		BPS = 0;
 		BPD = 0; 
 		 
-		can = false;
-		dia = false;
-		alz = false;
-	}
+		can = "n";
+		dia = "n";
+		alz = "n";
+	}	
 	
+	
+	/**
+	 * This is a overload constructor that can take in 10 parameters
+	 * note: this follows the format with the text file 
+	 * 
+	 * @param String firstName String lastName, int age, int height, int weight, int bPS, int bPD, String can,
+	 * String dia, String alz
+	 * 
+	 * */
+	public Member(String firstName, String lastName, int age, int height, int weight, int bPS, int bPD, String can,
+			String dia, String alz) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+		this.height = height;
+		this.weight = weight;
+		BPS = bPS;
+		BPD = bPD;
+		this.can = can;
+		this.dia = dia;
+		this.alz = alz;
+	}
 
 	
+	/**
+	 * overriding the toString() function to display all of the information 
+	 * that is within the class  
+	 * */
 	@Override
 	public String toString() {
 		String line = "";
@@ -138,11 +168,10 @@ public class Member implements Serializable{
 		line = line + String.format("Weight\t\t\t %d\n", getWeight());
 		line = line + String.format("BP Syst\t\t\t %d\n", getBPS());
 		line = line + String.format("BP Dias\t\t\t %d\n", getBPD());
-		line = line + String.format("Cancer\t\t\t %b", );//TODO FIXME finish up the last part only after i change the datatype to a String
-		line = line + String.format("Diabetes       ", );
-		line = line + String.format("Alzheimers     ", );
-		line = line + "-------------------------";
-		
+		line = line + String.format("Cancer\t\t\t %s", getCan());//TODO FIXME finish up the last part only after i change the datatype to a String
+		line = line + String.format("Diabetes\t\t\t %s\n", getDia());
+		line = line + String.format("Alzheimers\t\t\t %s\n", getAlz());
+		line = line +               "---------------------------------------------------\n";		
 		
 		return line; 
 	}
