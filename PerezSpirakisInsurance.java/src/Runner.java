@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.io.File;
 import java.util.ArrayList;
-public class main {
+public class Runner {
 
 	public static void printStars(int howMany) {
 		String stars = "";
