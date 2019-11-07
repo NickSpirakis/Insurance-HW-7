@@ -11,27 +11,35 @@ public class MemberReader {
 	 * */
 	public static ArrayList<Member> readDataFile(String fname){
 		ArrayList<Member> result = new ArrayList<Member>();
-					//i should be able to do this on 11/7/2019 around the after noon
+						
 		try {	//FIXME re write this function to make it read the file 
-			//something to so is make a String list then .split(\t) for each line from the text file 
-			//
+				//something to so is make a String list then .split(\t) for each line from the text file 
+			Scanner fsc = new Scanner(new File(fname));
+			String line;
+			String [] parts;
+			Member temp;
 			
-	
-		Scanner fsc = new Scanner(new File(fname));
-		String line, name, insurance;
-		Member mem;
-		while (fsc.hasNextLine()) {
-			name = fsc.next();
-			//insurance = fsc.nextLine().trim();
-			//mem = new Member(name, insurance);
-			result.add(mem);
-			}
-		fsc.close();
-		return result;
-	}catch (Exception ex) {
-		return null; // indicates a problem
-	}
-}
+			while(fsc.hasNextLine()) {
+				line = fsc.nextLine();
+				
+				parts = line.split("\t"); //split line by the tabs and making a list
+				//FIXME TODO get int get int the Integer.parseInt into the cosutor thing
+				result.add(new Member(parts[0],parts[1], Integer.parseInt(parts[2]),parts[3],parts[4],parts[5],parts[6],parts[7],parts[8],parts[9]));
+				
+				
+				
+			}//end of while loop
+			
+			fsc.close();
+			
+			return result;
+			
+		}catch (Exception ex) {
+			ex.printStackTrace();//for debugging 
+			return null; // indicates a problem
+		}
+			
+	}//end of readDataFile()
 	
 	
 	public static ArrayList<Member> readMemberFromBinary(String fname){
@@ -55,4 +63,4 @@ public class MemberReader {
 		}
 	}
 	
-}
+}//end of class
