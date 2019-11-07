@@ -4,62 +4,147 @@ import java.util.ArrayList;
 //must have a public default constructor
 public class Member implements Serializable{
 	
-	private String name;
-	private ArrayList<Integer> insurance;
+	private String firstName;
+	private String lastName;	
+	/*
+	 * age in years
+	 * height in inches
+	 * weight in pounds
+	 * BPS = Blood Pressure Systolic
+	 * BPD = Blood pressure Diastolic
+	 * */
+	private int age, height, weight, BPS, BPD; 
+	/*
+	 * can = Cancer
+	 * dia = Diabetes
+	 * alz = Alzheimers
+	 * 
+	 * true = yes
+	 * false = no
+	 * */
 	
-	public String getName() {
-		return name;
+	//TODO change this into to a String data type
+	private boolean can, dia, alz;
+	//TODO change the getter and the setter for these three data types
+	
+	
+	// getter and setter	//
+		
+	public String getFirstName() {
+		return firstName;
 	}
-	
-	public void setName(String name) {
-		this.name = name;
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
-	
-	public ArrayList<Integer> getInsurance(){
-		return insurance;
+
+	public String getLastName() {
+		return lastName;
 	}
-	
-	public void setInsurance(ArrayList<Integer> insurance) {
-		this.insurance = insurance;
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
-	
-	public void setInsurance(String insuranceString) {
-		insuranceString = insuranceString.trim();
-		String[] parts = insuranceString.split("	");
-		insurance = new ArrayList<Integer>();
-		for (String part : parts) {
-			insurance.add(Integer.parseInt(part));
-		}
+
+	public int getAge() {
+		return age;
 	}
-	
-	public Member(String name, String insuranceString) {
-		setName(name);
-		setInsurance(insuranceString);
+
+	public void setAge(int age) {
+		this.age = age;
 	}
-	
-	public Member (String name, ArrayList<Integer> insurance) {
-		setName(name);
-		setInsurance(insurance);
+
+	public int getHeight() {
+		return height;
 	}
-	
-	//this will be a public default constructor for xml
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	public int getWeight() {
+		return weight;
+	}
+
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+
+	public int getBPS() {
+		return BPS;
+	}
+
+	public void setBPS(int bPS) {
+		BPS = bPS;
+	}
+
+	public int getBPD() {
+		return BPD;
+	}
+
+	public void setBPD(int bPD) {
+		BPD = bPD;
+	}
+
+	public boolean isCan() {
+		return can;
+	}
+
+	public void setCan(boolean can) {
+		this.can = can;
+	}
+
+	public boolean isDia() {
+		return dia;
+	}
+
+	public void setDia(boolean dia) {
+		this.dia = dia;
+	}
+
+	public boolean isAlz() {
+		return alz;
+	}
+
+	public void setAlz(boolean alz) {
+		this.alz = alz;
+	}
+		
+	//This is a default constructor
 	public Member() {
-		name = "";
-		insurance = null;
+		firstName = "";
+		lastName = "";
+		
+		age = 0; 
+		height = 0;
+		weight = 0;
+		BPS = 0;
+		BPD = 0; 
+		 
+		can = false;
+		dia = false;
+		alz = false;
 	}
 	
-	public String getInsuranceAsString() {
-		String result = "";
-		for (int insure : insurance) {
-			result = result + insure + " ";
-		}
-		result = result.trim();
-		return result;
-	}
+
 	
 	@Override
 	public String toString() {
-		return String.format("%s %s", name, getInsuranceAsString());
+		String line = "";
+		
+		line = line + String.format("%s, %s\n", getLastName(), getFirstName() );
+		line = line + String.format("Age\t\t\t %d\n", getAge());
+		line = line + String.format("Height\t\t\t %d\n", getHeight());
+		line = line + String.format("Weight\t\t\t %d\n", getWeight());
+		line = line + String.format("BP Syst\t\t\t %d\n", getBPS());
+		line = line + String.format("BP Dias\t\t\t %d\n", getBPD());
+		line = line + String.format("Cancer\t\t\t %b", );//TODO FIXME finish up the last part only after i change the datatype to a String
+		line = line + String.format("Diabetes       ", );
+		line = line + String.format("Alzheimers     ", );
+		line = line + "-------------------------";
+		
+		
+		return line; 
 	}
 	
 }

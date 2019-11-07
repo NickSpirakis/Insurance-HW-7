@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import java.io.File;
 import java.util.ArrayList;
+
+//
 public class Runner {
 
 	public static void printStars(int howMany) {
@@ -43,6 +45,8 @@ public class Runner {
 		String choose;
 		System.out.println("Enter the name of member file: ");
 		String fname = sc.nextLine();
+		
+		//FIXME TODO i am almost most done getter this thing  to work -Adrian
 		ArrayList<Member> members = MemberReader.readDataFile(fname);
 		
 		if (members == null) {
