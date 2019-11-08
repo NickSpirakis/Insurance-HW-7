@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 //
 public class Runner {
-
+	public static ArrayList<Member> members ;
+	
 	public static void printStars(int howMany) {
 		String stars = "";
 		for (int i = 0; i < howMany; i++) {
@@ -38,6 +39,14 @@ public class Runner {
 		System.out.println("Enter the number of your choice: ");
 	}
 	
+	public static void printMembers() {
+		System.out.println("\nHere are the members: ");
+		for(int i = 0; i<members.size();i++){
+			System.out.println(members.get(i));			
+		}//end for loop		
+		System.out.println("");
+	}
+	
 	public static void main(String[] args) {
 		printWelcome();
 		Scanner sc = new Scanner(System.in);
@@ -46,8 +55,8 @@ public class Runner {
 		System.out.println("Enter the name of member file: ");
 		String fname = sc.nextLine();
 		
-		//FIXME TODO i am almost most done getter this thing  to work -Adrian
-		ArrayList<Member> members = MemberReader.readDataFile(fname);
+		//reading in the text file and save to list 
+		members = MemberReader.readDataFile(fname);
 		
 		if (members == null) {
 			System.out.println("Something bad happened");
@@ -57,7 +66,8 @@ public class Runner {
 				choice = sc.nextInt();
 				
 				if (choice == 1) {
-					System.out.println(members);
+					printMembers();					
+					
 				}else if (choice == 2) {
 					
 				}else if (choice == 3) {

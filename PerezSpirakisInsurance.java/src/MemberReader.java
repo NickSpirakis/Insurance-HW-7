@@ -12,29 +12,24 @@ public class MemberReader {
 	public static ArrayList<Member> readDataFile(String fname){
 		ArrayList<Member> result = new ArrayList<Member>();
 						
-		try {	//FIXME re write this function to make it read the file 
-				//something to so is make a String list then .split(\t) for each line from the text file 
+		try {
 			Scanner fsc = new Scanner(new File(fname));
 			String line;
 			String [] parts;
-			Member temp;
 			
 			while(fsc.hasNextLine()) {
 				line = fsc.nextLine();
 				
 				parts = line.split("\t"); //split line by the tabs and making a list
-				//FIXME TODO get int get int the Integer.parseInt into the cosutor thing
-				result.add(new Member(parts[0],parts[1], Integer.parseInt(parts[2]),parts[3],parts[4],parts[5],parts[6],parts[7],parts[8],parts[9]));
 				
-				
-				
-			}//end of while loop
-			
-			fsc.close();
-			
-			return result;
-			
+				result.add(new Member(parts[0], parts[1], Integer.parseInt(parts[2]), Integer.parseInt(parts[3]),
+						Integer.parseInt(parts[4]), Integer.parseInt(parts[5]), Integer.parseInt(parts[6]),
+						parts[7], parts[8], parts[9]));					
+			}//end of while loop			
+			fsc.close();			
+			return result;			
 		}catch (Exception ex) {
+			System.out.println("There was a problem load in the text file");
 			ex.printStackTrace();//for debugging 
 			return null; // indicates a problem
 		}
