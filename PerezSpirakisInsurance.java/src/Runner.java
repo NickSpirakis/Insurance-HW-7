@@ -16,7 +16,7 @@ public class Runner {
 	
 	public static void printWelcome() {
 		printStars(55);
-		System.out.println("		Ensurance Score Card");
+		System.out.println("		Insurance Score Card");
 		System.out.println("	This app scores a potential customer");
 		System.out.println("	on various health attributes: blood");
 		System.out.println("	pressure, age, height, weight, and");
