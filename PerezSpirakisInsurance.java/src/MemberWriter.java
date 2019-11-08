@@ -4,6 +4,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import java.beans.XMLEncoder;
+import org.json.simple.*;
 //writing as binary
 
 
@@ -31,8 +32,19 @@ public class MemberWriter {
 			return false;
 		}
 	}
-	
-	
+	public static boolean writeMembersToJSON(String fname, ArrayList<Member> members) {
+		try {
+			PrintWriter pw = new PrintWriter(new BufferedOutputStream(new FileWriter(fname)));
+			JSONObject memObj;
+			JSONArray array = new JSONArray();
+			for (Member mem : members) {
+				memObj = new JSONObject();
+				//memObj.put("name", mem.getFirstName());
+				
+			}
+			
+		}
+	}
 	
 }
 

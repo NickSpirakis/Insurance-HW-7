@@ -90,6 +90,8 @@ public class Runner {
 				}else if (choice == 5) {
 					
 				}else if (choice == 6) {
+					System.out.print("Now we will write to JSON. Enter the file name: ");
+					fname = sc.nextLine();
 					
 				}
 				
