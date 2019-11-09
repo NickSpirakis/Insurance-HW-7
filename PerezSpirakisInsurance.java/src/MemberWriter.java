@@ -34,15 +34,30 @@ public class MemberWriter {
 	}
 	public static boolean writeMembersToJSON(String fname, ArrayList<Member> members) {
 		try {
-			PrintWriter pw = new PrintWriter(new BufferedOutputStream(new FileWriter(fname)));
+			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fname)));
 			JSONObject memObj;
 			JSONArray array = new JSONArray();
 			for (Member mem : members) {
 				memObj = new JSONObject();
-				//memObj.put("name", mem.getFirstName());
-				
+				memObj.put("First name", mem.getFirstName());
+				memObj.put("Last name", mem.getLastName());
+				memObj.put("Age", mem.getAge());
+				memObj.put("Height", mem.getHeight());
+				memObj.put("Weight", mem.getWeight());
+				memObj.put("Blood Pressure Systolic", mem.getBPS());
+				memObj.put("Blood Pressure Diastolic", mem.getBPD());
+				memObj.put("Cancer", mem.getCan());
+				memObj.put("Diabetes", mem.getDia());
+				memObj.put("Alzheimers", mem.getAlz());
 			}
+			JSONObject outer = new JSONObject();
+			outer.put("Members", array);
+			pw.println(outer.toJSONString());
+			pw.close();
+			return true;
 			
+		}catch (Exception ex){
+			return false;
 		}
 	}
 	
