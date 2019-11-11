@@ -51,7 +51,8 @@ public class Runner {
 		printWelcome();
 		Scanner sc = new Scanner(System.in);
 		int choice;
-		String choose;
+		String decide;
+		String ofname;
 		System.out.println("Enter the name of member file: ");
 		String fname = sc.nextLine();
 		
@@ -71,19 +72,29 @@ public class Runner {
 				}else if (choice == 2) {
 					
 				}else if (choice == 3) {
+					
+				
 					System.out.println("(T)ext, (B)inary, (X)ml: ");
-					choose = sc.next();
+					decide = sc.nextLine();
 					
-					if (choose == "T") {
+					//System.out.println("Enter the name of the output file: ");
+					//ofname = sc.nextLine();
+					
+						if (decide.equals("T")) {
+							System.out.println("Enter the name of the output file: ");
+							ofname = sc.nextLine();
 						
-					}else if (choose == "B") {
-						ArrayList<Member> readFromBin = MemberReader.readMemberFromBinary(fname);
+						}else if (decide.equals("B")) {
+							System.out.println("Enter the name of the output file: ");
+							ofname = sc.nextLine();
+							ArrayList<Member> readFromBin = MemberReader.readMemberFromBinary(fname);
+							System.out.println("Members were written successfully!");
 					//MemberWriter.writeMembersToBinary;
-					}else if (choose == "X") {
-					ArrayList<Member> readFromXML = MemberReader.readMemberFromXML(fname);
-					}
-					
-					
+						}else if (decide.equals("X")) {
+							System.out.println("Enter the name of the output file: ");
+							ofname = sc.nextLine();
+							ArrayList<Member> readFromXML = MemberReader.readMemberFromXML(fname);
+						}
 					
 				}else if (choice == 4) {
 					

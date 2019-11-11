@@ -114,7 +114,7 @@ public class Member implements Serializable{//FIXME there might be a error with 
 	}
 		
 	
-	//This is a default constructor
+	//This is a public default constructor
 	public Member() {
 		firstName = "";
 		lastName = "";
