@@ -14,6 +14,7 @@ public class Runner {
 		System.out.println(stars);
 	}
 	
+	
 	public static void printWelcome() {
 		printStars(55);
 		System.out.println("		Insurance Score Card");
