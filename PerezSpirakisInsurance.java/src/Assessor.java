@@ -48,6 +48,7 @@ public class Assessor {//this is proprly  going to be a static class
 		}		
 	}
 	
+	//FIXME re check the logic of the if and else if statments 
 	//function for bloodpressure 
 	public String evalBP(int sys, int dia ) {
 		//will return one of this strings
@@ -59,9 +60,9 @@ public class Assessor {//this is proprly  going to be a static class
 		}
 		else if( (120<=sys && sys<=129) && (dia<80) ) 
 		{
-			return "elevted";
+			return "elevated";
 		}
-		else if( (130<=sys && sys<=139) || (dia<=80 && dia<=89) ) {
+		else if( (130<=sys && sys<=139) || (80<=dia && dia<=89) ) {
 			
 			return "stage1";
 		}
@@ -69,10 +70,11 @@ public class Assessor {//this is proprly  going to be a static class
 			
 			return "stage2";
 		}	
-		else //if(180<=sys || 120<=dia)
+		else if(180<=sys || 120<=dia)
 		{
 			return "crisis";
 		}	
+		else {return "normal"; }//need this for the defluat function return 
 			
 	}
 	
@@ -121,17 +123,17 @@ public class Assessor {//this is proprly  going to be a static class
 		else if(45<=age && age<60) {
 			totalPoint = totalPoint + 20;
 		}
-		else {
+		else if(60 <= 60) {
 			totalPoint = totalPoint + 30;
 		}
 		
 		//the three question
 			//cancer
-		if(c.equals("n")) {totalPoint = totalPoint + 10;}
+		if(c.equals("y")) {totalPoint = totalPoint + 10;}
 			//diabetes
-		if(d.equals("n")) {totalPoint = totalPoint + 10;}
+		if(d.equals("y")) {totalPoint = totalPoint + 10;}
 			//alzhe
-		if(a.equals("n")) {totalPoint = totalPoint + 10;}
+		if(a.equals("y")) {totalPoint = totalPoint + 10;}
 		
 		
 		return totalPoint;
@@ -179,7 +181,7 @@ public class Assessor {//this is proprly  going to be a static class
 						//for the papam  enter the height then weight
 			BMI = evalBMI(members.get(i).getHeight(), members.get(i).getWeight());
 					//this need two papam systolic and diastolic
-			BP = evalBP(members.get(i).getBPS(), members.get(i).getBPS());
+			BP = evalBP(members.get(i).getBPS(), members.get(i).getBPD());
 			//point = 0;
 			point = totalPoints(BMI, BP, members.get(i).getAge(), members.get(i).getCan(), members.get(i).getDia(), members.get(i).getAlz() );	
 			

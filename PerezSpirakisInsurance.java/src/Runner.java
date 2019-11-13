@@ -75,7 +75,7 @@ public class Runner {
 					
 				
 					System.out.println("(T)ext, (B)inary, (X)ml: ");
-					decide = sc.nextLine();
+					decide = sc.nextLine().trim();
 					
 					//System.out.println("Enter the name of the output file: ");
 					//ofname = sc.nextLine();
@@ -95,7 +95,7 @@ public class Runner {
 							ofname = sc.nextLine();
 							ArrayList<Member> readFromXML = MemberReader.readMemberFromXML(fname);
 						}
-					
+				//end of number 3 	
 				}else if (choice == 4) {
 					
 				}else if (choice == 5) {
