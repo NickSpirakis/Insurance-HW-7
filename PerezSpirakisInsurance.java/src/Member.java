@@ -163,14 +163,14 @@ public class Member implements Serializable{//FIXME there might be a error with 
 		String line = "";
 		
 		line = line + String.format("%s, %s\n", getLastName(), getFirstName() );
-		line = line + String.format("Age\t\t%d\n", getAge());
-		line = line + String.format("Height\t\t%d in\n", getHeight());
-		line = line + String.format("Weight\t\t%d lbs\n", getWeight());
-		line = line + String.format("BP Syst\t\t%d\n", getBPS());
-		line = line + String.format("BP Dias\t\t%d\n", getBPD());
-		line = line + String.format("Cancer\t\t%s\n", getCan());
-		line = line + String.format("Diabetes\t%s\n", getDia());
-		line = line + String.format("Alzheimers\t%s\n", getAlz());
+		line = line + String.format("Age %15d\n", getAge());
+		line = line + String.format("Height %15d in\n", getHeight());
+		line = line + String.format("Weight %15d lbs\n", getWeight());
+		line = line + String.format("BP Sys %15d\n", getBPS());
+		line = line + String.format("BP Dias %15d\n", getBPD());
+		line = line + String.format("Cancer %15s\n", getCan());
+		line = line + String.format("Diabetes %15s\n", getDia());
+		line = line + String.format("Alzheimers %15s\n", getAlz());
 		line = line +               "-------------------------------------";		
 		
 		return line; 
