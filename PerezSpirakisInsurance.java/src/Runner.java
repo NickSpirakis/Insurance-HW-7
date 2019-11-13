@@ -99,7 +99,10 @@ public class Runner {
 				}else if (choice == 4) {
 					
 				}else if (choice == 5) {
-					
+					//TODO FIXME need to add the code for this optipo 
+					Assessor one = new Assessor(members);
+					one.evalAll();
+		
 				}else if (choice == 6) {
 					System.out.println("Now we will write to JSON. Enter the file name: ");
 					fname = sc.nextLine();

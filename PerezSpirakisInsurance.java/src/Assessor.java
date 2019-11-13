@@ -7,7 +7,8 @@
 
 import java.util.ArrayList;
 
-
+//TODO change sme if the function to private
+//TODO make some comment
 public class Assessor {//this is proprly  going to be a static class
 	
 	private ArrayList<Member> members;//hold the list of the members
@@ -90,14 +91,14 @@ public class Assessor {//this is proprly  going to be a static class
 		else if(BMI.equals("obesity")) {
 			totalPoint = totalPoint + 75;
 		}
+		else {totalPoint = totalPoint + 0;}
 				
 		//Blood Pressure
 		if(BP.equals("normal")) {
 			totalPoint = totalPoint + 0;
 		}
 		else if(BP.equals("elevated")) {
-			totalPoint = totalPoint + 15;
-			
+			totalPoint = totalPoint + 15;			
 		}
 		else if(BP.equals("stage1")) {
 			totalPoint = totalPoint + 30;
@@ -108,6 +109,7 @@ public class Assessor {//this is proprly  going to be a static class
 		else if(BP.equals("crisis")) {
 			totalPoint = totalPoint + 100;
 		}
+		else {totalPoint = totalPoint + 0;}
 		
 		//Age
 		if(age<30) {
@@ -121,7 +123,7 @@ public class Assessor {//this is proprly  going to be a static class
 		}
 		else {
 			totalPoint = totalPoint + 30;
-		}		
+		}
 		
 		//the three question
 			//cancer
@@ -135,6 +137,7 @@ public class Assessor {//this is proprly  going to be a static class
 		return totalPoint;
 	}
 	
+	//this just reunt a string of lelve of the risk
 	public String calRisk(int num) {
 		
 		if(num<=20) {
@@ -156,13 +159,14 @@ public class Assessor {//this is proprly  going to be a static class
 		System.out.println("Here are the insurance assessments:");
 		
 		for(int i = 0; i<members.size(); i++) {
-			System.out.printf("Name: %20s\n", riskMembers[i][0]);
-			System.out.printf("Score: %20s\n", riskMembers[i][1]);
+			System.out.printf("Name:    %20s\n", riskMembers[i][0]);
+			System.out.printf("Score:   %20s\n", riskMembers[i][1]);
 			System.out.printf("Verdict: %20s\n", riskMembers[i][2]);
 			System.out.println("");//spacer
 		}		
 	}		
 	
+	//FIXME TODO check out the adding of the point  in class point made somethingis wor
 	//function to pick the risk name and saving to the list 
 	public void evalAll() {//this is main function to call to get everything started in one go
 		String BMI = "";
@@ -176,7 +180,7 @@ public class Assessor {//this is proprly  going to be a static class
 			BMI = evalBMI(members.get(i).getHeight(), members.get(i).getWeight());
 					//this need two papam systolic and diastolic
 			BP = evalBP(members.get(i).getBPS(), members.get(i).getBPS());
-			
+			//point = 0;
 			point = totalPoints(BMI, BP, members.get(i).getAge(), members.get(i).getCan(), members.get(i).getDia(), members.get(i).getAlz() );	
 			
 			risk = calRisk(point);
