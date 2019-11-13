@@ -131,27 +131,14 @@ public class Runner {
 				}else if (choice == 3) {
 					
 					saveMembers(fname);
-					//System.out.println("(T)ext, (B)inary, (X)ml: ");
-					//decide = sc.nextLine();
-					
-					//	if (decide.equals("T")) {
-						//	System.out.println("Enter the name of the output file: ");
-						//	ofname = sc.nextLine();
-						
-						//}else if (decide.equals("B")) {
-						//	System.out.println("Enter the name of the output file: ");
-						//	ofname = sc.nextLine();
-						//	ArrayList<Member> readFromBin = MemberReader.readMemberFromBinary(fname);
-						//	System.out.println("Members were written successfully!");
-					//MemberWriter.writeMembersToBinary;
-					//	}else if (decide.equals("X")) {
-						//	System.out.println("Enter the name of the output file: ");
-					//		ofname = sc.nextLine();
-					//		ArrayList<Member> readFromXML = MemberReader.readMemberFromXML(fname);
-						//}
-					
-					
-				}else if (choice == 4) {
+				}else if (decide.equals("X")) {
+							System.out.println("Enter the name of the output file: ");
+							ofname = sc.nextLine();
+							ArrayList<Member> readFromXML = MemberReader.readMemberFromXML(fname);
+						}
+				//end of number 3 	
+
+				else if (choice == 4) {
 					
 					loadMembers(fname);
 					
