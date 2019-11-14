@@ -2,18 +2,22 @@ import java.util.Scanner;
 import java.io.File;
 import java.util.ArrayList;
 
-//
+//This is the only class that has the main function
+
+//testing
 public class Runner {
 	public static ArrayList<Member> members ;
 	
+	//prints a line of stars
 	public static void printStars(int howMany) {
 		String stars = "";
 		for (int i = 0; i < howMany; i++) {
 			stars = stars + "*";
 		}
 		System.out.println(stars);
-	}
+	}	
 	
+	//print out a welcome message to the user and tell whatthie program does
 	public static void printWelcome() {
 		printStars(55);
 		System.out.println("		Insurance Score Card");
@@ -27,6 +31,7 @@ public class Runner {
 		printStars(55);
 	}
 	
+	//prints out the menu options
 	public static void showMenu() {
 		System.out.println("Here are your choices:");
 		System.out.println("1. List members");
@@ -39,6 +44,7 @@ public class Runner {
 		System.out.println("Enter the number of your choice: ");
 	}
 	
+	//This function is for option one
 	public static void printMembers() {
 		System.out.println("\nHere are the members: ");
 		for(int i = 0; i<members.size();i++){
@@ -47,11 +53,61 @@ public class Runner {
 		System.out.println("");
 	}
 	
+	public static void saveMembers(String fname) {
+		Scanner sc = new Scanner(System.in);
+		String decide;
+		String ofname;
+		
+		System.out.println("(T)ext, (B)inary, (X)ml: ");
+		decide = sc.nextLine();
+		
+		if (decide.equals("T")) {
+			System.out.println("Enter the name of the input file: ");
+			ofname = sc.nextLine();
+			
+		}else if (decide.equals("B")) {
+			System.out.println("Enter the name of the input file: ");
+			ofname = sc.nextLine();
+			MemberWriter.writeMembersToBinary(fname, members);
+			System.out.println("Members were written successfully!");
+		//MemberWriter.writeMembersToBinary;
+		}else if (decide.equals("X")) {
+			System.out.println("Enter the name of the input file: ");
+			ofname = sc.nextLine();
+			MemberWriter.writeMembersToXML(fname, members);
+		}
+		
+	}
+	
+	public static void loadMembers(String fname) {
+		Scanner sc = new Scanner(System.in);
+		String decide;
+		String ofname;
+		
+		System.out.println("(T)ext, (B)inary, (X)ml: ");
+		decide = sc.nextLine();
+		if (decide.equals("T")) {
+			System.out.println("Enter the name of the input file: ");
+			ofname = sc.nextLine();
+		}else if (decide.equals("B")) {
+			System.out.println("Enter the name of the input file: ");
+			ofname = sc.nextLine();
+			ArrayList<Member> readFromBin = MemberReader.readMemberFromBinary(fname);
+			System.out.println("Members were written successfully!");
+		//MemberWriter.writeMembersToBinary;
+		}else if (decide.equals("X")) {
+			System.out.println("Enter the name of the input file: ");
+			ofname = sc.nextLine();
+			ArrayList<Member> readFromXML = MemberReader.readMemberFromXML(fname);
+		}
+	}
+	
+	////	THE MAIN	////
 	public static void main(String[] args) {
 		printWelcome();
 		Scanner sc = new Scanner(System.in);
 		int choice;
-		String decide;
+		String decide = "";
 		String ofname;
 		System.out.println("Enter the name of member file: ");
 		String fname = sc.nextLine();
@@ -71,11 +127,19 @@ public class Runner {
 					
 				}else if (choice == 2) {
 					
-				}else if (choice == 3) {
+				}else if (choice == 3) {///////////
+					////had to reformat
+					saveMembers(fname);
+					if (decide.equals("X")) {
 					
-				
-				//end of number 3 	
-				}else if (choice == 4) {
+					System.out.println("Enter the name of the output file: ");
+					ofname = sc.nextLine();
+					ArrayList<Member> readFromXML = MemberReader.readMemberFromXML(fname);
+					}
+				}/////////////////end of number 3 	
+
+				else if (choice == 4) {					
+					loadMembers(fname);				
 					
 				}else if (choice == 5) {
 					//TODO FIXME need to add the code for this optipo 
@@ -89,13 +153,12 @@ public class Runner {
 						System.out.println("The scores were written successfully.");
 					} else {
 						System.out.println("Something went wrong");
-					}
-				}
+					}//end of else
+				}//end if number 6
 				
 			}while(choice != 7);
-		}
+		}//end of else statment	
 		
-		
-	}
-
-}
+	}//end of mian function
+	
+}//end of class
