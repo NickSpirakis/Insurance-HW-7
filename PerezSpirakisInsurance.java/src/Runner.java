@@ -74,34 +74,13 @@ public class Runner {
 				}else if (choice == 3) {
 					
 				
-					System.out.println("(T)ext, (B)inary, (X)ml: ");
-					decide = sc.nextLine().trim();
-					
-					//System.out.println("Enter the name of the output file: ");
-					//ofname = sc.nextLine();
-					
-						if (decide.equals("T")) {
-							System.out.println("Enter the name of the output file: ");
-							ofname = sc.nextLine();
-						
-						}else if (decide.equals("B")) {
-							System.out.println("Enter the name of the output file: ");
-							ofname = sc.nextLine();
-							ArrayList<Member> readFromBin = MemberReader.readMemberFromBinary(fname);
-							System.out.println("Members were written successfully!");
-					//MemberWriter.writeMembersToBinary;
-						}else if (decide.equals("X")) {
-							System.out.println("Enter the name of the output file: ");
-							ofname = sc.nextLine();
-							ArrayList<Member> readFromXML = MemberReader.readMemberFromXML(fname);
-						}
 				//end of number 3 	
 				}else if (choice == 4) {
 					
 				}else if (choice == 5) {
 					//TODO FIXME need to add the code for this optipo 
 					Assessor one = new Assessor(members);
-					one.evalAll();
+					one.printRisk();
 		
 				}else if (choice == 6) {
 					System.out.println("Now we will write to JSON. Enter the file name: ");

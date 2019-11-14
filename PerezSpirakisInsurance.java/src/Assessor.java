@@ -17,6 +17,10 @@ public class Assessor {//this is proprly  going to be a static class
 	 * full name 
 	 * risk score
 	 * verdit 
+	 * {{name,socre, ver},
+	 * {--,--,--},
+	 * {--,--}}
+	 * 
 	 * */
 	private String [][] riskMembers; //this will hold the member data on rather there are a risk of not  
 	
@@ -79,7 +83,7 @@ public class Assessor {//this is proprly  going to be a static class
 	}
 	
 	//this function will totlat all the points for the peoples information 
-	public int totalPoints(String BMI, String BP, int age, String c, String d, String a ) {
+	private int totalPoints(String BMI, String BP, int age, String c, String d, String a ) {
 		int totalPoint = 0;
 		
 		//BMI
@@ -140,7 +144,7 @@ public class Assessor {//this is proprly  going to be a static class
 	}
 	
 	//this just reunt a string of lelve of the risk
-	public String calRisk(int num) {
+	private String calRisk(int num) {
 		
 		if(num<=20) {
 			return "low risk";
@@ -156,17 +160,7 @@ public class Assessor {//this is proprly  going to be a static class
 		}
 	}
 	
-	
-	public void printRisk() {
-		System.out.println("Here are the insurance assessments:");
 		
-		for(int i = 0; i<members.size(); i++) {
-			System.out.printf("Name:    %20s\n", riskMembers[i][0]);
-			System.out.printf("Score:   %20s\n", riskMembers[i][1]);
-			System.out.printf("Verdict: %20s\n", riskMembers[i][2]);
-			System.out.println("");//spacer
-		}		
-	}		
 	
 	//FIXME TODO check out the adding of the point  in class point made somethingis wor
 	//function to pick the risk name and saving to the list 
@@ -194,8 +188,20 @@ public class Assessor {//this is proprly  going to be a static class
 			riskMembers[i][2] = risk;			 
 			
 		}//end if i loop
-		
-		printRisk();		
+			
 	}	
+	
+	public void printRisk() {
+		evalAll();
+		System.out.println("Here are the insurance assessments:");
+		
+		for(int i = 0; i<members.size(); i++) {
+			System.out.printf("Name:    %20s\n", riskMembers[i][0]);
+			System.out.printf("Score:   %20s\n", riskMembers[i][1]);
+			System.out.printf("Verdict: %20s\n", riskMembers[i][2]);
+			System.out.println("");//spacer
+		}		
+	}		
+	
 	
 }//end of class
