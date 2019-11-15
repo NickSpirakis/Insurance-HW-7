@@ -31,56 +31,44 @@ public class Member implements Serializable{//FIXME there might be a error with 
 	private String can, dia, alz;
 	
 	
-	// getter and setter	//
-		
+	// getter and setter	//	
+	//note* there isn't really any data checking within the setters
 	public String getFirstName() {
 		return firstName;
 	}
-
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
-
 	public String getLastName() {
 		return lastName;
 	}
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
 	public int getAge() {
 		return age;
 	}
-
 	public void setAge(int age) {
 		this.age = age;
 	}
-
 	public int getHeight() {
 		return height;
 	}
-
 	public void setHeight(int height) {
 		this.height = height;
 	}
-
 	public int getWeight() {
 		return weight;
 	}
-
 	public void setWeight(int weight) {
 		this.weight = weight;
 	}
-
 	public int getBPS() {
 		return BPS;
 	}
-
 	public void setBPS(int bPS) {
 		BPS = bPS;
 	}
-
 	public int getBPD() {
 		return BPD;
 	}
@@ -88,31 +76,25 @@ public class Member implements Serializable{//FIXME there might be a error with 
 	public void setBPD(int bPD) {
 		BPD = bPD;
 	}
-
 	public String getCan() {
 		return can;
 	}
-
 	public void setCan(String can) {
 		this.can = can;
 	}
-
 	public String getDia() {
 		return dia;
 	}
-
 	public void setDia(String dia) {
 		this.dia = dia;
 	}
-
 	public String getAlz() {
 		return alz;
 	}
-
 	public void setAlz(String alz) {
 		this.alz = alz;
-	}
-		
+	}		
+	
 	
 	//This is a public default constructor
 	public Member() {
@@ -129,7 +111,6 @@ public class Member implements Serializable{//FIXME there might be a error with 
 		dia = "n";
 		alz = "n";
 	}	
-	
 	
 	/**
 	 * This is a overload constructor that can take in 10 parameters
@@ -176,4 +157,4 @@ public class Member implements Serializable{//FIXME there might be a error with 
 		return line; 
 	}
 	
-}
+}//end of class

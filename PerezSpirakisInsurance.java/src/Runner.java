@@ -142,7 +142,6 @@ public class Runner {
 					loadMembers(fname);				
 					
 				}else if (choice == 5) {
-					//TODO FIXME need to add the code for this optipo 
 					Assessor one = new Assessor(members);
 					one.printRisk();
 		
