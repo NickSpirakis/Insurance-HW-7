@@ -5,7 +5,7 @@
  * */
 
 import java.util.ArrayList;
-
+/////FIXME TODO this class is just to do clauation  i have to move some functio do the other class
 public class Assessor {
 	
 	//will hold the list of the members passed passed from main

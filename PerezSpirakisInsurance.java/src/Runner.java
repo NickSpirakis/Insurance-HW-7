@@ -197,6 +197,7 @@ public class Runner {
 				
 			}while(choice != 7);
 			System.out.println("\nThanks for using this program\n");
+			System.out.println("Good Bye...");
 		}//end of else statement	
 		
 	}//end of main function
