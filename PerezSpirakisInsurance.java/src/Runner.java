@@ -62,17 +62,17 @@ public class Runner {
 		decide = sc.nextLine();
 		
 		if (decide.equals("T")) {
-			System.out.println("Enter the name of the input file: ");
+			System.out.println("Enter the name of the output file: ");
 			ofname = sc.nextLine();
 			
 		}else if (decide.equals("B")) {
-			System.out.println("Enter the name of the input file: ");
+			System.out.println("Enter the name of the output file: ");
 			ofname = sc.nextLine();
 			MemberWriter.writeMembersToBinary(fname, members);
 			System.out.println("Members were written successfully!");
 		//MemberWriter.writeMembersToBinary;
 		}else if (decide.equals("X")) {
-			System.out.println("Enter the name of the input file: ");
+			System.out.println("Enter the name of the output file: ");
 			ofname = sc.nextLine();
 			MemberWriter.writeMembersToXML(fname, members);
 		}

@@ -13,4 +13,6 @@ public class InsuranceScore {
 	String name, score, level;
 	
 
+	
+	
 }
