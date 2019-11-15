@@ -102,6 +102,45 @@ public class Runner {
 		}
 	}
 	
+	/**
+	 * This function will add a member to the 'memory' (the ArrayList called members)
+	 * the function will need 10 inputs from the user; the data types are 5 String and 5 int.
+	 * it will ask the user question that they can enter 
+	 * */
+	public static void addMember() {
+		Scanner in = new Scanner(System.in);
+		String first, last, can, dia, alz;
+		int age, ht, wt, bps, bpd;
+		
+		try {
+		System.out.print("Enter first and last name: ");
+		first = in.next().trim(); last = in.nextLine().trim();
+		System.out.print("Enter age: ");
+		age = in.nextInt(); in.nextLine();
+		System.out.print("Enter height in inches: ");
+		ht = in.nextInt(); in.nextLine();
+		System.out.print("Enter weight in pounds: ");
+		wt = in.nextInt(); in.nextLine();
+		System.out.print("Enter blood pressure (sys and dia): ");
+		bps = in.nextInt(); bpd = in.nextInt(); in.nextLine();
+		System.out.println("Has a family member had (y or n) ...");
+		System.out.print("Cancer? ");
+		can = in.nextLine().trim();
+		System.out.print("Diabetes? ");
+		dia = in.nextLine().trim();
+		System.out.print("Alzheimers? ");
+		alz = in.nextLine().trim();
+		System.out.println("");//soacer
+		
+		Member temp = new Member(first, last, age, ht, wt, bps, bpd , can ,dia, alz);
+		members.add(temp);
+		}catch(Exception e) {System.out.println("\n!?!?You type in something worng?!?!\n");}
+				
+		System.out.println("New member has been added.");
+	}
+	
+	
+	
 	////	THE MAIN	////
 	public static void main(String[] args) {
 		printWelcome();
@@ -126,6 +165,7 @@ public class Runner {
 					printMembers();					
 					
 				}else if (choice == 2) {
+					addMember();
 					
 				}else if (choice == 3) {///////////
 					////had to reformat
@@ -156,8 +196,9 @@ public class Runner {
 				}//end if number 6
 				
 			}while(choice != 7);
-		}//end of else statment	
+			System.out.println("\nThanks for using this program\n");
+		}//end of else statement	
 		
-	}//end of mian function
+	}//end of main function
 	
 }//end of class

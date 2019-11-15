@@ -215,7 +215,7 @@ public class Assessor {
 	 * */
 	public void printRisk() {//this function has to be called from the main
 		evalAll();
-		System.out.println("Here are the insurance assessments:");
+		System.out.println("\nHere are the insurance assessments:");
 		
 		for(int i = 0; i<members.size(); i++) {
 			System.out.printf("Name:    %20s\n", riskMembers[i][0]);
