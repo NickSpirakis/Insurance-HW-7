@@ -64,7 +64,7 @@ public class Runner {
 		if (decide.equals("T")) {
 			System.out.println("Enter the name of the output file: ");
 			ofname = sc.nextLine();
-			MemberWriter.writeMembersToTextFile(fname, members);
+			MemberWriter.writeMembersToTextFile(ofname, members);
 			System.out.println("Members were written successfully!");
 			
 		}else if (decide.equals("B")) {
