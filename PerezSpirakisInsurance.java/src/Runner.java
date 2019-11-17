@@ -70,13 +70,14 @@ public class Runner {
 		}else if (decide.equals("B")) {
 			System.out.println("Enter the name of the output file: ");
 			ofname = sc.nextLine();
-			MemberWriter.writeMembersToBinary(fname, members);
+			MemberWriter.writeMembersToBinary(ofname, members);
 			System.out.println("Members were written successfully!");
 		//MemberWriter.writeMembersToBinary;
 		}else if (decide.equals("X")) {
 			System.out.println("Enter the name of the output file: ");
 			ofname = sc.nextLine();
-			MemberWriter.writeMembersToXML(fname, members);
+			MemberWriter.writeMembersToXML(ofname, members);
+			System.out.println("Members were written successfully!");
 		}
 		
 	}
@@ -92,16 +93,18 @@ public class Runner {
 			System.out.println("Enter the name of the input file: ");
 			ifname = sc.nextLine();
 			ArrayList<Member> readFromTxt = MemberReader.readDataFile(fname);
+			
 		}else if (decide.equals("B")) {
 			System.out.println("Enter the name of the input file: ");
 			ifname = sc.nextLine();
 			ArrayList<Member> readFromBin = MemberReader.readMemberFromBinary(fname);
-			System.out.println("Members were written successfully!");
+			
 		//MemberWriter.writeMembersToBinary;
 		}else if (decide.equals("X")) {
 			System.out.println("Enter the name of the input file: ");
 			fname = sc.nextLine();
 			ArrayList<Member> readFromXML = MemberReader.readMemberFromXML(fname);
+			
 		}
 	}
 	
@@ -178,6 +181,7 @@ public class Runner {
 					System.out.println("Enter the name of the output file: ");
 					ofname = sc.nextLine();
 					ArrayList<Member> readFromXML = MemberReader.readMemberFromXML(fname);
+					
 					}
 				}/////////////////end of number 3 	
 
