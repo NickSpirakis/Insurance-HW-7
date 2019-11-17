@@ -190,7 +190,7 @@ public class Runner {
 					
 				}else if (choice == 5) {
 					Assessor one = new Assessor(members);
-					one.printRisk();
+					one.startAssessor();//FIXME just 
 		
 				}else if (choice == 6) {
 					System.out.println("Now we will write to JSON. Enter the file name: ");

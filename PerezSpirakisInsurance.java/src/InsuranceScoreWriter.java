@@ -30,7 +30,7 @@ public class InsuranceScoreWriter {//FIXME TODO thi class may have to be a stati
 	
 	
 	/////code for the JSON/////
-	
+	//this code is for option 6 
 	
 	
 	
