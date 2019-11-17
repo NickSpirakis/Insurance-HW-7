@@ -22,6 +22,7 @@ public class Assessor {
 	 * 
 	 * */
 	private String [][] riskMembers; 
+	private ArrayList<InsuranceScore> mem = new ArrayList<InsuranceScore>();
 	
 	
 	//Constructor methods
@@ -201,27 +202,18 @@ public class Assessor {
 			risk = calRisk(point);
 			//setting full name 
 			name = members.get(i).getLastName() +", " + members.get(i).getFirstName();
-			//saving results into a double string array
-			riskMembers[i][0] = name ;
-			riskMembers[i][1] =  ""+point ;//like casting to a string
-			riskMembers[i][2] = risk;				
+			//saving results the array list called memy			
+			
+			mem.add(new InsuranceScore(name, ""+point, risk));			
+			
 		}//end if i loop			
 	}	
 	
-	/**
-	 * This will print out a report on the members it will do it some
-	 * System.out.println Statements within an a for loop
-	 * @return System.out.println()
-	 * */
-	public void printRisk() {//this function has to be called from the main
+	public void startAssessor() {
 		evalAll();
-		System.out.println("\nHere are the insurance assessments:");
-		
-		for(int i = 0; i<members.size(); i++) {
-			System.out.printf("Name:    %20s\n", riskMembers[i][0]);
-			System.out.printf("Score:   %20s\n", riskMembers[i][1]);
-			System.out.printf("Verdict: %20s\n", riskMembers[i][2]);
-			System.out.println("");//spacer
-		}		
-	}	
+		InsuranceScoreWriter ISW = new InsuranceScoreWriter(mem);		
+		ISW.printRisk();
+	}
+	
+	
 }//end of class
