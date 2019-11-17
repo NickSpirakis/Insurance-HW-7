@@ -29,7 +29,7 @@ public class MemberReader {
 			fsc.close();			
 			return result;			
 		}catch (Exception ex) {
-			System.out.println("There was a problem load in the text file");
+			System.out.println("There was a problem loading in the text file");
 			ex.printStackTrace();//for debugging 
 			return null; // indicates a problem
 		}

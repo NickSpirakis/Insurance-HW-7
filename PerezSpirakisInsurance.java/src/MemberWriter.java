@@ -9,6 +9,19 @@ import org.json.simple.*;
 
 
 public class MemberWriter {
+	public static boolean writeMembersToTextFile(String fname, ArrayList<Member> members) {
+		try {
+			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fname)));
+			
+			for (Member m : members) {
+				pw.println(m);
+			}
+			pw.close();
+			return true;
+		}catch(Exception ex) {
+			return false;
+		}
+	}
 	
 	public static boolean writeMembersToBinary(String fname, ArrayList<Member> members) {
 		try {
