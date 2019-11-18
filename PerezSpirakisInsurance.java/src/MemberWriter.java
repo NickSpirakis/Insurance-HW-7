@@ -29,7 +29,7 @@ public class MemberWriter {
 	public static boolean writeMembersToBinary(String fname, ArrayList<Member> members) {
 		try {
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fname));
-			oos.writeObject(members);
+			oos.writeObject(members); 
 			oos.close();
 		return true;
 			

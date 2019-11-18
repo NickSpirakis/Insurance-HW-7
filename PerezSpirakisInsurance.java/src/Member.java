@@ -8,7 +8,7 @@
 import java.io.Serializable;
 
 //must have a public default constructor
-public class Member implements Serializable{//FIXME there might be a error with the Serializable not sure?
+public class Member implements Serializable{
 	
 	private String firstName;
 	private String lastName;	
