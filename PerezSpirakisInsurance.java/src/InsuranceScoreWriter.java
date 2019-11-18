@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.json.simple.*;		//FIXME TODO the static thing issue 
 public class InsuranceScoreWriter {///have to make this who;e ont tp  astatoc one ???????????
 
-	private ArrayList<InsuranceScore> inSc;
+	private static ArrayList<InsuranceScore> inSc;
 	
 	public InsuranceScoreWriter() {
 		inSc = null;
@@ -23,7 +23,7 @@ public class InsuranceScoreWriter {///have to make this who;e ont tp  astatoc on
 	 * This function will print out to the console in a nice format
 	 * displaying a members assessed information	 * 
 	 * */
-	public void printRisk() {
+	public static void printRisk() {
 		
 		System.out.println("\nHere are the insurance assessments:");
 		for(int i =0; i<inSc.size(); i++) {
@@ -37,10 +37,7 @@ public class InsuranceScoreWriter {///have to make this who;e ont tp  astatoc on
 	
 	
 	/////code for the JSON/////
-	//this code is for option 6
-	//FIXME TODO out this functio toption to th emain function of the main prgraon
-	//do from get aboitu the if 
-	public static boolean assessorToJson(String fname) {//ghe array list is in a gobal scoop
+	public static boolean assessorToJson(String fname, ArrayList<InsuranceScore> islist ) {//ghe array list is in a gobal scoop
 		
 		try {
 			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fname)));
@@ -48,7 +45,7 @@ public class InsuranceScoreWriter {///have to make this who;e ont tp  astatoc on
 			//making a json objects
 			JSONObject stuObj;
 			JSONArray array = new JSONArray();
-			for(InsuranceScore is : inSc) {
+			for(InsuranceScore is : islist) { // just going thort one by one of the member 
 				stuObj = new JSONObject();
 				stuObj.put("name", is.getName());
 				stuObj.put("score", is.getScore());
@@ -58,8 +55,8 @@ public class InsuranceScoreWriter {///have to make this who;e ont tp  astatoc on
 			JSONObject outer = new JSONObject();
 			outer.put("members", array);//puttint the hlist with  in a list 
 			pw.println(outer.toJSONString());//printing to a file
+			
 			pw.close();
-			System.out.println("yes printed");
 			return true ;
 		}catch(Exception ex) {
 			return false;			

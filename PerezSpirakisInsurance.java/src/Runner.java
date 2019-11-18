@@ -53,7 +53,7 @@ public class Runner {
 		System.out.println("");
 	}
 	
-	public static void saveMembers(String fname) {
+	public static void saveMembers() {
 		Scanner sc = new Scanner(System.in);
 		String decide;
 		String ofname;
@@ -145,6 +145,25 @@ public class Runner {
 		System.out.println("New member has been added.");
 	}
 	
+	/**
+	 * This function is for option number 6 where is can save the assessed members information
+	 * to a JSON file 
+	 * */
+	public static void saveToJSON() {
+		Assessor as = new Assessor(members);
+		as.evalAll();//assessing all the data 
+		
+		Scanner in = new Scanner(System.in);
+		System.out.println("\nNow we will write to JSON. Enter the file name: ");
+		String jname = in.nextLine();
+											//passing the name and a list of <InsuranceScore>
+		if (InsuranceScoreWriter.assessorToJson(jname, as.getIS() )) {
+			System.out.println("The scores were written successfully.");
+		} else {
+			System.out.println("Something went wrong");
+		}//end of else	
+		
+	}	
 	
 	
 	////	THE MAIN	////
@@ -176,14 +195,17 @@ public class Runner {
 					
 				}else if (choice == 3) {///////////
 					////had to reformat
-					saveMembers(fname);
+					saveMembers();
+					
+					/*
 					if (decide.equals("X")) {
 					
 					System.out.println("Enter the name of the output file: ");
 					ofname = sc.nextLine();
 					ArrayList<Member> readFromXML = MemberReader.readMemberFromXML(fname);
 					
-					}
+					}*/
+					
 				}/////////////////end of number 3 	
 
 				else if (choice == 4) {					
@@ -194,13 +216,8 @@ public class Runner {
 					one.startAssessor();//FIXME just 
 		
 				}else if (choice == 6) {
-					System.out.println("Now we will write to JSON. Enter the file name: ");
-					jname = sc.nextLine();
-					if (MemberWriter.writeMembersToJSON(jname, members)) {
-						System.out.println("The scores were written successfully.");
-					} else {
-						System.out.println("Something went wrong");
-					}//end of else
+					saveToJSON();					
+					
 				}//end if number 6
 				
 			}while(choice != 7);

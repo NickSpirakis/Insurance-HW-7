@@ -14,6 +14,10 @@ public class Assessor {
 	
 	private ArrayList<InsuranceScore> mem = new ArrayList<InsuranceScore>();
 	
+	public ArrayList<InsuranceScore> getIS(){
+		return mem;
+	}
+	
 	
 	//Constructor methods
 	public Assessor() {
@@ -175,7 +179,7 @@ public class Assessor {
 	 * 
 	 * @return void
 	 * */
-	private void evalAll() {
+	public  void evalAll() {
 		String BMI = "";
 		String BP = "";
 		int point = 0;

@@ -11,22 +11,34 @@ import org.json.simple.*;
 public class MemberWriter {
 	
 	//this function writes to a text file
-	public static boolean writeMembersToTextFile(String fname, ArrayList<Member> members) {
+	public static boolean writeMembersToTextFile(String fname, ArrayList<Member> mems) {
+		PrintWriter pw;
 		try {
-			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fname)));
+			pw = new PrintWriter(new BufferedWriter(new FileWriter(fname)));
 			
-			for (Member m : members) {
-				pw.println(m);
-			}
-			pw.close();
-			return true;
+			
 		}catch(Exception ex) {
 			return false;
 		}
+		
+		
+		String line = "";
+		for(int i = 0; i<mems.size(); i++) {
+			//first name, last name, age, height, weight, bps, bpd, hascancer, hasdia, hasalz 
+			pw.print("test\n");
+			line =String.format("%s\t%s\t%d\t%d\t%d\t%d\t%d\t%d\t%s\t%s\t%s",  mems.get(i).getFirstName(), mems.get(i).getLastName(), mems.get(i).getAge(), 
+			mems.get(i).getHeight(), mems.get(i).getWeight(), mems.get(i).getBPS(), mems.get(i).getBPD(), 
+			mems.get(i).getCan(), mems.get(i).getDia(), mems.get(i).getAlz());
+			pw.print(line);		
+		}
+		pw.close();
+		return true;
+		
+		
 	}
 	
 	//this function writes to a binary file
-	public static boolean writeMembersToBinary(String fname, ArrayList<Member> members) {
+	public static boolean writeMembersToBinary(String fname, ArrayList<Member> members) {  //FIXME TODO have to redo odo the function in thie class must out put the text liek the one on the exampe 
 		try {
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fname));
 			oos.writeObject(members); 
@@ -43,7 +55,6 @@ public class MemberWriter {
 		try {
 			XMLEncoder enc = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(fname)));
 			enc.writeObject(members);
-			enc.close();
 		return true;
 		}catch(Exception ex) {
 			return false;
