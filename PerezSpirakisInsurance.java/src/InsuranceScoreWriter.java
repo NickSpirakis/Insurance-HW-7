@@ -1,21 +1,26 @@
-//JSON file writter
-/*Uses a class called InsuranceScoreWriter to write the insurance risk information in a nicely formatted way to the screen.*/
-/*Uses a class called InsuranceScoreWriter to write the insurance risk information to a JSON file.*/
+/**
+ * 
+ * 
+ * */
 
 import java.util.ArrayList;
-public class InsuranceScoreWriter {//FIXME TODO thi class may have to be a static class
+public class InsuranceScoreWriter {
 
-	ArrayList<InsuranceScore> inSc;
+	private ArrayList<InsuranceScore> inSc;
 	
 	public InsuranceScoreWriter() {
 		inSc = null;
 	}
 	
-	public InsuranceScoreWriter(ArrayList<InsuranceScore> temp) {//going to use this to pass the array from the assessor class 
+	//over load
+	public InsuranceScoreWriter(ArrayList<InsuranceScore> temp) {//Using this to pass the array from the assessor class 
 		inSc = temp;
 	}	
 	
-	
+	/**
+	 * This function will print out to the console in a nice format
+	 * displaying a members assessed information	 * 
+	 * */
 	public void printRisk() {
 		
 		System.out.println("\nHere are the insurance assessments:");

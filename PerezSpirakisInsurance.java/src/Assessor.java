@@ -1,40 +1,29 @@
 /**
- * This class will do the calculation of the risk of each of the member in the list 
- * it will then print out the the risk of each member to the conslue 
+ * This class will do the calculation for assessing each member such as 
+ * the score for each member, put a risk level based on that score.
+ * It will store that information that it just calculated into a 
+ * InsureanceScore object which there will be a ArrayList. 
  * 
  * */
 
 import java.util.ArrayList;
-/////FIXME TODO this class is just to do clauation  i have to move some functio do the other class
 public class Assessor {
 	
 	//will hold the list of the members passed passed from main
 	private ArrayList<Member> members;
 	
-	/*
-	 * it will hold:
-	 * full name 
-	 * risk score
-	 * verdit 
-	 * {{name,socre, ver},
-	 * {--,--,--},
-	 * {--,--}}
-	 * 
-	 * */
-	private String [][] riskMembers; 
 	private ArrayList<InsuranceScore> mem = new ArrayList<InsuranceScore>();
 	
 	
 	//Constructor methods
 	public Assessor() {
 		members = null;	
-		riskMembers = null;
+		mem = null;
 	}	
 
-	public Assessor(ArrayList<Member> mems) {
+	//overload
+	public Assessor(ArrayList<Member> mems) {//pass the list of members
 		members = mems;
-					// [#of members] [3 data points needed]
-		riskMembers = new String [members.size()] [3];
 	}
 	
 	
@@ -61,18 +50,20 @@ public class Assessor {
 	}
 	
 	/**
-	 * 
+	 * The function will need two inputs and will return a String.
+	 * This will see what Blood Pressure a member has based on the two numbers
+	 * from the inputs.
+	 * There are only 5 different Strings that it can return
+	 * normal, elevated, stage1, stage2, and crisis
 	 * 
 	 * @return String
 	 * */
 	public String evalBP(int sys, int dia ) {
-		//will return one of this strings
-		//normal, elevated,stage1, stage2, crisis
 		
 		if(sys < 120 && dia < 80) {
 			return "normal";
 		}
-		else if( (120<=sys && sys<=129) && (dia<80) )		{
+		else if( (120<=sys && sys<=129) && (dia<80) ){
 			return "elevated";
 		}
 		else if( (130<=sys && sys<=139) || (80<=dia && dia<=89) ){
@@ -84,7 +75,7 @@ public class Assessor {
 		else if(180<=sys || 120<=dia){
 			return "crisis";
 		}	
-		else {return "normal"; }//need this for the defluat function return 			
+		else {return "normal"; }//need this for the default function return 			
 	}
 	
 	/**
@@ -202,13 +193,19 @@ public class Assessor {
 			risk = calRisk(point);
 			//setting full name 
 			name = members.get(i).getLastName() +", " + members.get(i).getFirstName();
-			//saving results the array list called memy			
 			
-			mem.add(new InsuranceScore(name, ""+point, risk));			
-			
+			//saving results the array list called mem				
+			mem.add(new InsuranceScore(name, ""+point, risk));				
 		}//end if i loop			
 	}	
 	
+	/**
+	 * This function must be called with in main it will start the whole process 
+	 * of the assessing and it will be start the calucaltion process
+	 * pass list of insureanceScore to a object of InsuranceScoreWriter
+	 * whcih wll then call a function in that class to printout the date out to the console 
+	 * 
+	 * */
 	public void startAssessor() {
 		evalAll();
 		InsuranceScoreWriter ISW = new InsuranceScoreWriter(mem);		

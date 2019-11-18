@@ -1,17 +1,18 @@
-/*
- * Models the risk associated with each member using an object of class InsuranceScore that stores the name, score, and risk level for a member.
- *
- * the work for this class is all  ready done withhin the assessor class
- * i just have to moste the fnction into to this class  * 
+/**
+ * This class will be used to hold a member data
+ * such as their full name, health score, and the risk level. 
  * 
- */
+ * This class will be used to make a list of objects from
+ * 
+ * */
 public class InsuranceScore {
-	String name, score, level;
+	private String name, score, level;
 	
 	public InsuranceScore(){
-		name = "" ; score = "" ; level = "";		
+		name = ""; score = ""; level = "";		
 	}
 	
+	//over overload
 	public InsuranceScore(String na, String scr, String lev) {
 		name = na; score = scr; level  = lev;		
 	}
