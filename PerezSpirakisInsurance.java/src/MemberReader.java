@@ -37,6 +37,7 @@ public class MemberReader {
 	}//end of readDataFile()
 	
 	
+	//this will read in a binary file
 	public static ArrayList<Member> readMemberFromBinary(String fname){
 		try {
 			ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fname));
@@ -47,6 +48,7 @@ public class MemberReader {
 			return null;
 		}
 	}
+	//this will read in a xml file
 	public static ArrayList<Member> readMemberFromXML(String fname){
 		try {
 			XMLDecoder dec = new XMLDecoder(new BufferedInputStream(new FileInputStream(fname)));

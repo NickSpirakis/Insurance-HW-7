@@ -154,6 +154,7 @@ public class Runner {
 		int choice;
 		String decide = "";
 		String ofname;
+		String jname;
 		System.out.println("Enter the name of member file: ");
 		String fname = sc.nextLine();
 		
@@ -194,8 +195,8 @@ public class Runner {
 		
 				}else if (choice == 6) {
 					System.out.println("Now we will write to JSON. Enter the file name: ");
-					fname = sc.nextLine();
-					if (MemberWriter.writeMembersToJSON(fname, members)) {
+					jname = sc.nextLine();
+					if (MemberWriter.writeMembersToJSON(jname, members)) {
 						System.out.println("The scores were written successfully.");
 					} else {
 						System.out.println("Something went wrong");

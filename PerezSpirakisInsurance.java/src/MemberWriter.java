@@ -9,6 +9,8 @@ import org.json.simple.*;
 
 
 public class MemberWriter {
+	
+	//this function writes to a text file
 	public static boolean writeMembersToTextFile(String fname, ArrayList<Member> members) {
 		try {
 			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fname)));
@@ -23,6 +25,7 @@ public class MemberWriter {
 		}
 	}
 	
+	//this function writes to a binary file
 	public static boolean writeMembersToBinary(String fname, ArrayList<Member> members) {
 		try {
 			ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fname));
@@ -35,6 +38,7 @@ public class MemberWriter {
 		}
 	}
 	
+	//this function writes to a XML file
 	public static boolean writeMembersToXML(String fname, ArrayList<Member> members) {
 		try {
 			XMLEncoder enc = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(fname)));
@@ -45,6 +49,8 @@ public class MemberWriter {
 			return false;
 		}
 	}
+	
+	//this function will write to a json file
 	public static boolean writeMembersToJSON(String fname, ArrayList<Member> members) {
 		try {
 			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fname)));
