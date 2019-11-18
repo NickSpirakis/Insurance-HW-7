@@ -1,10 +1,18 @@
+/**
+ * this is the class to make program go and run
+ * 
+ * Created: by Adrian Perez and  Nick Spirakis
+ * 
+ * CPSC 24500: Object Oriented Programming
+ * Health Insurance Risk Calculator
+ * Monday, November 18 @ 6pm for Section 001
+ * 
+ * */
+
 import java.util.Scanner;
 import java.io.File;
 import java.util.ArrayList;
 
-//This is the only class that has the main function
-
-//testing
 public class Runner {
 	public static ArrayList<Member> members ;
 	

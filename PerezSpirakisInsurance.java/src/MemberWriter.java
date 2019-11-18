@@ -22,19 +22,18 @@ public class MemberWriter {
 		}
 		
 		
-		String line = "etsetsetse";
+		String line = "test";
 		for(int i = 0; i<mems.size(); i++) {
 			//first name, last name, age, height, weight, bps, bpd, hascancer, hasdia, hasalz 
-			//pw.print(line);
+			//pw.print(line);//for testing 
 			
 			line = String.format("%s\t%s\t%d\t%d\t%d\t%d\t%d\t%s\t%s\t%s\n",  mems.get(i).getFirstName(), mems.get(i).getLastName(), mems.get(i).getAge(), 
 			mems.get(i).getHeight(), mems.get(i).getWeight(), mems.get(i).getBPS(), mems.get(i).getBPD(), 
 			mems.get(i).getCan(), mems.get(i).getDia(), mems.get(i).getAlz());
 			pw.print(line);	
-		}
+		}// end of for loop
 		pw.close();
-		return true;
-		
+		return true;		
 		
 	}
 	
